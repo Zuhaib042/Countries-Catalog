@@ -10,9 +10,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/countrydetails/:id" element={<CountryDetails />} />
-        <h1 className="text-3xl text-red-400 font-bold underline">
-          Hello world!
-        </h1>
       </Routes>
     </>
   );
