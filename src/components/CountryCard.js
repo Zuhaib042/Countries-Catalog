@@ -1,8 +1,15 @@
 import React from 'react';
 import { BsArrowRightCircle } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const CountryCard = ({ name, region, flagImage, population }) => {
+const CountryCard = ({ id, name, region, flagImage, population }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/countrydetails/${id}`);
+  };
+
   const convertNumber = (labelValue) => {
     if (Math.abs(Number(labelValue)) >= 1.0e9) {
       return `${(Math.abs(Number(labelValue)) / 1.0e9).toFixed(2)}B`;
@@ -16,7 +23,6 @@ const CountryCard = ({ name, region, flagImage, population }) => {
     return Math.abs(Number(labelValue));
   };
   const refined = convertNumber(population);
-  //   const handleClick = () => {};
 
   return (
     <li className="col-span-1 bg-light p-3 text-white">
@@ -34,11 +40,7 @@ const CountryCard = ({ name, region, flagImage, population }) => {
           <span className=""> Population: </span>
           <span className="text-2xl font-bold">{refined}</span>
         </p>
-        <button
-          onClick={(e) => console.log(e.target.id)}
-          type="button"
-          className="text-2xl"
-        >
+        <button onClick={handleClick} type="button" className="text-2xl">
           <BsArrowRightCircle />
         </button>
       </div>
@@ -48,7 +50,7 @@ const CountryCard = ({ name, region, flagImage, population }) => {
 
 CountryCard.propTypes = {
   name: PropTypes.string.isRequired,
-  //   id: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   region: PropTypes.string.isRequired,
   flagImage: PropTypes.string.isRequired,
   population: PropTypes.number.isRequired,

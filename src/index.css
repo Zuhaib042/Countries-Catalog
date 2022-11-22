@@ -18,3 +18,11 @@ body {
 .country-ul li:nth-child(even) {
   background-color: #d14277;
 }
+
+.details-ul li:nth-child(odd) {
+  background-color: #ec4c8a;
+}
+
+.details-ul li:nth-child(even) {
+  background-color: #d14277;
+}

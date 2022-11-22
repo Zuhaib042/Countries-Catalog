@@ -29,6 +29,7 @@ const baseUrl = 'https://restcountries.com/v3.1/all';
 
 export const fetchCountries = createAsyncThunk('fetchCountries', async () => {
   const response = await axios.get(baseUrl);
+  console.log(response.data);
   return response.data;
   //   const countries = response.data;
   //   const res = countries.map((elem) => ({
@@ -44,10 +45,22 @@ export const fetchCountries = createAsyncThunk('fetchCountries', async () => {
   //   return res;
 });
 
+// export const filterCounty = createAsyncThunk('filterCounty', async () => {
+//   const response = await axios.get(baseUrl);
+//   return response.data;
+// });
+
 const countriesSlice = createSlice({
   name: 'countries',
   initialState,
-  reducers: {},
+  reducers: {
+    filterCountry: (state, action) => {
+      const county = [
+        ...state.filter((country) => country.countryId === action.payload),
+      ];
+      return county[0];
+    },
+  },
   extraReducers: {
     [fetchCountries.fulfilled]: (state, action) => {
       const countries = action.payload.map((elem) => ({
@@ -56,7 +69,17 @@ const countriesSlice = createSlice({
         region: elem.region,
         lat: elem.latlng[0],
         long: elem.latlng[1],
+        continents: elem.continents,
+        carSide: elem.car.side,
+        coatOfArms: elem.coatOfArms.png,
+        capital: elem.capital,
+        capitalLocation: elem.capitalInfo.latlng,
+        langugage: elem.languages,
+        subregion: elem.subregion,
+        currency: elem.currencies,
+        timezones: elem.timezones,
         area: elem.area,
+        flagSmall: elem.flag,
         population: elem.population,
         flag: elem.flags.png,
       }));
@@ -65,8 +88,10 @@ const countriesSlice = createSlice({
   },
 });
 
-// export const selectAllCountries = (state) => state.countries;
-// export const { fetchData } = countriesSlice.actions;
+// const filterCountry =
+
+export const selectAllCountries = (state) => state.countries;
+export const { filterCountry } = countriesSlice.actions;
 export default countriesSlice.reducer;
 // export default countriesReducer;
 
