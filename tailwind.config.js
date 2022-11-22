@@ -6,9 +6,9 @@ module.exports = {
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
-        'glowing': '#fe5395',
-        'dark': '#d14277',
-        'light': '#ec4c8a',
+        glowing: '#fe5395',
+        dark: '#d14277',
+        light: '#ec4c8a',
       },
     },
   },
