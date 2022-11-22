@@ -10,3 +10,11 @@ body {
 .sepia img {
   filter: grayscale(100%);
 }
+
+.country-ul li:nth-child(odd) {
+  background-color: #ec4c8a;
+}
+
+.country-ul li:nth-child(even) {
+  background-color: #d14277;
+}
