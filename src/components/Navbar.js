@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaMicrophone } from 'react-icons/fa';
 import { BsFillGearFill } from 'react-icons/bs';
-// import {FaChevronLeft} from 'react-icons/fa';
 
 const Navbar = () => (
   <div className="bg-light text-white py-4 flex items-center justify-between">
