@@ -29,7 +29,6 @@ const baseUrl = 'https://restcountries.com/v3.1/all';
 
 export const fetchCountries = createAsyncThunk('fetchCountries', async () => {
   const response = await axios.get(baseUrl);
-  console.log(response.data);
   return response.data;
   //   const countries = response.data;
   //   const res = countries.map((elem) => ({

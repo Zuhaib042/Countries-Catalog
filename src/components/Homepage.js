@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import logo from '../images/logoCap.png';
 import Navbar from './Navbar';
@@ -8,12 +8,24 @@ import CountryCard from './CountryCard';
 const Homepage = () => {
   const dispatch = useDispatch();
   const allCountries = useSelector(selectAllCountries);
+  const [input, setInput] = useState('');
   useEffect(() => {
     if (allCountries.length === 0) {
       dispatch(fetchCountries());
     }
   }, [dispatch]);
-  const countryElements = allCountries.map((country) => (
+
+  const filteredCountries = allCountries.filter(
+    (
+      country, //eslint-disable-line
+    ) => country.countryName.toLowerCase().includes(input.toLowerCase()),
+  );
+
+  const handleChange = (e) => {
+    setInput(e.target.value);
+  };
+
+  const filteredElements = filteredCountries.map((country) => (
     <CountryCard
       key={country.countryId}
       name={country.countryName}
@@ -21,26 +33,23 @@ const Homepage = () => {
       region={country.region}
       flagImage={country.flag}
       population={country.population}
-      area={country.area}
-      subregion={country.subregion}
-      continent={country.continent}
-      language={country.language}
-      lat={country.lat}
-      long={country.long}
-      carside={country.carside}
-      coatOfArms={country.coatOfArms}
-      currency={country.currency}
-      timezones={country.timezones}
     />
   ));
+
   return (
     <>
       <Navbar />
       <div>
         <div className="bg-glowing flex items-center justify-evenly py-4">
-          <div>
-            <h1 className="text-lg text-white">Search Country by Name</h1>
-            <input type="text" className="rounded-xl py-1 w-96" />
+          <div className=" w-[60%]">
+            <h1 className="text-lg pl-3 text-white">Search Country by Name</h1>
+            <input
+              type="text"
+              value={input}
+              onInput={handleChange}
+              placeholder="Country Name"
+              className="rounded-3xl py-1 pl-3 w-[100%] max-w-lg"
+            />
           </div>
           <div className="sepia">
             <img src={logo} alt="" width="80px" />
@@ -48,7 +57,7 @@ const Homepage = () => {
         </div>
 
         <ul className="country-ul grid grid-cols-1 sm:grid-cols-3  lg:grid-cols-5 w-full">
-          {countryElements}
+          {filteredElements}
         </ul>
       </div>
     </>
