@@ -5,8 +5,25 @@
 body {
   margin: 0;
   font-family: 'Lato', sans-serif;
+  background-color: #fe5395;
 }
 
 .sepia img {
   filter: grayscale(100%);
+}
+
+.country-ul li:nth-child(odd) {
+  background-color: #ec4c8a;
+}
+
+.country-ul li:nth-child(even) {
+  background-color: #d14277;
+}
+
+.details-ul li:nth-child(odd) {
+  background-color: #ec4c8a;
+}
+
+.details-ul li:nth-child(even) {
+  background-color: #d14277;
 }
