@@ -14,6 +14,8 @@ const CountryDetails = () => {
   const country = countries.filter((obj) => obj.countryId === id);
   const country2 = country[0];
 
+  console.log(country2);
+
   return (
     <div>
       <div className="flex justify-between py-4 items-center text-white bg-glowing">
