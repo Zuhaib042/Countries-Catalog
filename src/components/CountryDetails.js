@@ -17,7 +17,7 @@ const CountryDetails = () => {
   return (
     <div>
       <div className="flex justify-between py-4 items-center text-white bg-glowing">
-        <button type="button" onClick={() => navigate('/')}>
+        <button className="ml-3" type="button" onClick={() => navigate('/')}>
           <FaChevronLeft />
         </button>
         <div className="flex flex-col items-center">
