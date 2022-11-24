@@ -14,8 +14,6 @@ const CountryDetails = () => {
   const country = countries.filter((obj) => obj.countryId === id);
   const country2 = country[0];
 
-  console.log(country2);
-
   return (
     <div>
       <div className="flex justify-between py-4 items-center text-white bg-glowing">
@@ -76,21 +74,9 @@ const CountryDetails = () => {
           <span>Car Side:</span>
           <span>{country2.carSide}</span>
         </li>
-        {/* <li className="flex justify-between px-3 py-4">
-          <span>Car Side:</span>
-          <span></span>
-        </li> */}
       </ul>
     </div>
   );
 };
-
-// CountryDetails.propTypes = {
-//   name: PropTypes.string.isRequired,
-//     unid: PropTypes.string.isRequired,
-//   region: PropTypes.string.isRequired,
-//   flagImage: PropTypes.string.isRequired,
-//   population: PropTypes.number.isRequired,
-// };
 
 export default CountryDetails;
