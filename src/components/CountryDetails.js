@@ -74,21 +74,9 @@ const CountryDetails = () => {
           <span>Car Side:</span>
           <span>{country2.carSide}</span>
         </li>
-        {/* <li className="flex justify-between px-3 py-4">
-          <span>Car Side:</span>
-          <span></span>
-        </li> */}
       </ul>
     </div>
   );
 };
-
-// CountryDetails.propTypes = {
-//   name: PropTypes.string.isRequired,
-//     unid: PropTypes.string.isRequired,
-//   region: PropTypes.string.isRequired,
-//   flagImage: PropTypes.string.isRequired,
-//   population: PropTypes.number.isRequired,
-// };
 
 export default CountryDetails;
