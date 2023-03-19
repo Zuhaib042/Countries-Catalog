@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Space Travelers' Hub
+# Countries Catalog
 
 > Countries Catalog is a Single Page App built with react.It fetches data from https://restcountries.com/ api and shows all the countries of the world. It also show their population on homepage and upon clicking on any country's card, it takes to the detail page and shows more info about that specific country.In this web app I used Redux as a state management library. And for testing, I used react-testing-library with Jest.
 
